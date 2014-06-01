@@ -5,13 +5,14 @@
   <title>2147483648</title>
 
   <link href="style/main.css" rel="stylesheet" type="text/css">
+  <link href="style/ai.css" rel="stylesheet" type="text/css">
   <link rel="shortcut icon" href="favicon.ico">
   <link rel="apple-touch-icon" href="meta/apple-touch-icon.png">
   <meta name="apple-mobile-web-app-capable" content="yes">
 
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no">
 </head>
 <body>
   <div class="container">
@@ -104,6 +105,17 @@
     <p class="game-explanation">
       <strong class="important">How to play:</strong> Use your <strong>arrow keys</strong> to move the tiles. When two tiles with the same number touch, they <strong>merge into one!</strong>
     </p>
+    <p class="game-explanation">
+      <strong class="important">How the AI works:</strong> The AI plays the game multiple times using completely <strong>random moves!</strong> The average end score per starting position is calculated.  
+	  The move with the highest score is chosen. By default the AI plays 100 games per move. <strong>Increase the run count for a stronger AI.</strong><br/>
+	  <br/>
+	  It's interesting to note that even though the AI is based on random moves, it plays quite well. <br/>
+	  <br/>
+	  Another interesting property is that the AI has <strong>no hard-coded intelligence</strong> meaning no knowledge about what makes a good move was programmed into it! It "figures it out" all by itself.</br>
+	  </br>
+	  For a detailed discussion <a href="http://stackoverflow.com/a/23853848/632039">see my post in StackOverflow</a>.
+    </p>
+	
     <hr>
     <p>
     <strong class="important">Note:</strong> This site is <strong>NOT</strong> the official version of 2048. You can play it on your phone via <a href="http://git.io/2048">http://git.io/2048.</a> All other apps or sites are derivatives or fakes, and should be used with caution.
@@ -130,5 +142,6 @@
     ga('create', 'UA-49094472-1', 'cyberzhg.github.io');
     ga('send', 'pageview');
   </script>
+  <script src="js/ai.js"></script>
 </body>
 </html>

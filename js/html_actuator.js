@@ -116,7 +116,9 @@ HTMLActuator.prototype.updateBestScore = function (bestScore) {
 
 HTMLActuator.prototype.message = function (won) {
   var type    = won ? "game-won" : "game-over";
-  var message = won ? "You win!" : "Game over!";
+  var message = won ? "You win!" : "Game over!"
+
+  if (ga) ga("send", "event", "game done", this.score, document.getElementById('run-count').value);
 
   this.messageContainer.classList.add(type);
   this.messageContainer.getElementsByTagName("p")[0].textContent = message;
@@ -126,4 +128,14 @@ HTMLActuator.prototype.clearMessage = function () {
   // IE only takes one value to remove at a time.
   this.messageContainer.classList.remove("game-won");
   this.messageContainer.classList.remove("game-over");
+  this.messageContainer.classList.remove("game-won", "game-over");
 };
+
+
+HTMLActuator.prototype.showHint = function(hint) {
+  document.getElementById('feedback-container').innerHTML = ['↑','→','↓','←'][hint];
+}
+
+HTMLActuator.prototype.setRunButton = function(message) {
+  document.getElementById('run-button').innerHTML = message;
+}
