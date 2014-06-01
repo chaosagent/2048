@@ -59,6 +59,9 @@ window.requestAnimationFrame(function () {
   case "antigrav":
     gravity(0);
     break;
+  case "primes":
+    primes();
+    break;
   default:
     normal();
     break;
@@ -275,6 +278,29 @@ function fibonacci() {
       return false;
     }, 
     function(merged) { return merged === 5702887; });
+}
+
+function primes() {
+  var primes = new Array();
+  var wp = 2;
+  while (wp <= 30) {
+    var isprime = true;
+    var i = 2;
+    while (i < Math.sqrt(wp) && i != wp) {
+      if (wp % i == 0) {
+        isprime = false;
+        break;
+      }
+      i = i + 1;
+    }
+    if (isprime) {
+      primes.push(wp);
+    }
+    wp = wp + 1;
+  }
+  changeRule(function() { return 1; },
+    normalMerge, 
+    function(merged) { return merged === 139; });
 }
 
 function threes() {
