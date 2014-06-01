@@ -129,6 +129,22 @@ function swirl() {
   game.move(dir);
 }
 
+function leftright() {
+  if (dir % 2 == 0) {
+    dir = 1;
+  }
+  dir = (dir + 2) % 4;
+  game.move(dir);
+}
+
+function updown() {
+  if (dir % 2 == 1) {
+    dir = 0;
+  }
+  dir = (dir + 2) % 4;
+  game.move(dir);
+}
+
 function random() {
   game.move(Math.floor(Math.random() * 4));
 }
